@@ -1,0 +1,591 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>PoolSide — Brand Playbook</title>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="The PoolSide brand playbook: our mission, what PoolSide is, nano-soluble 10mg hemp-derived Delta-9 THC drink mix, flavors, ingredients, compliance and FAQ.">
+<meta name="theme-color" content="#0b2545">
+<link rel="canonical" href="https://drinkpoolside.com/pages/brand-playbook">
+<meta property="og:type" content="website">
+<meta property="og:title" content="PoolSide — Brand Playbook">
+<meta property="og:description" content="The PoolSide brand playbook: our mission, what PoolSide is, nano-soluble 10mg hemp-derived Delta-9 THC drink mix, flavors, ingredients, compliance and FAQ.">
+<meta property="og:image" content="https://drinkpoolside.com/cdn/shop/files/poolside-playbook-cover.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%230b2545'/><path d='M4 20c3-3 6-3 8 0s5 3 8 0 5-3 8 0' stroke='%2329a8e0' stroke-width='3.2' fill='none' stroke-linecap='round'/><circle cx='16' cy='10' r='4.2' fill='%23f2c21b'/></svg>">
+<style>
+:root{
+  --navy:#0b2545; --navy-2:#12345f; --blue:#29a8e0; --blue-dk:#1b7fb8;
+  --orange:#e07a24; --gold:#f2c21b; --cream:#f7f3ea;
+  --ink:#0e1c2c; --chrome:rgba(255,255,255,.92);
+  --ratio: 1448 / 1086;
+  --turn: 720ms;
+}
+*,*::before,*::after{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0; background:
+    radial-gradient(1200px 700px at 50% -10%, #17456f 0%, transparent 60%),
+    linear-gradient(180deg,#0b2545 0%, #071a33 100%);
+  background-attachment:fixed;
+  color:#fff; overflow:hidden;
+  font:500 15px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+.app{height:100dvh;display:flex;flex-direction:column}
+
+/* ---------- top bar ---------- */
+.bar{
+  flex:0 0 auto;display:flex;align-items:center;gap:14px;
+  padding:10px clamp(10px,2.4vw,22px);
+  padding-top:max(10px,env(safe-area-inset-top));
+}
+.brand{display:flex;align-items:center;gap:10px;min-width:0}
+.brand svg{width:26px;height:26px;flex:0 0 auto}
+.brand b{font-size:15px;font-weight:800;letter-spacing:.2px;white-space:nowrap}
+.brand span{font-size:12px;opacity:.62;white-space:nowrap}
+@media(max-width:640px){.brand span{display:none}}
+.bar__sp{flex:1 1 auto}
+.btn{
+  appearance:none;border:1px solid rgba(255,255,255,.20);background:rgba(255,255,255,.07);
+  color:#fff;border-radius:10px;padding:8px 12px;font:inherit;font-size:13px;font-weight:600;
+  display:inline-flex;align-items:center;gap:7px;cursor:pointer;
+  transition:background .16s,border-color .16s,transform .1s;
+  text-decoration:none;white-space:nowrap;
+}
+.btn:hover{background:rgba(255,255,255,.15);border-color:rgba(255,255,255,.36)}
+.btn:active{transform:translateY(1px)}
+.btn:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+.btn--cta{background:linear-gradient(180deg,var(--blue),var(--blue-dk));border-color:transparent}
+.btn--cta:hover{background:linear-gradient(180deg,#3fb8ee,#2189c4)}
+.btn svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.btn--icon{padding:8px}
+@media(max-width:860px){.btn__t{display:none} .btn{padding:8px}}
+
+/* ---------- stage ---------- */
+.stage{
+  flex:1 1 auto;position:relative;display:grid;place-items:center;
+  padding:0 clamp(6px,5vw,68px);min-height:0;
+}
+.book{
+  position:relative;width:100%;aspect-ratio:var(--ratio);
+  max-width:calc((100dvh - 132px) * 1448 / 1086);
+  perspective:2400px;
+  filter:drop-shadow(0 26px 55px rgba(0,0,0,.55));
+  border-radius:6px;
+}
+.page{
+  position:absolute;inset:0;margin:0;visibility:hidden;
+  transform-origin:left center;transform-style:preserve-3d;backface-visibility:hidden;
+  border-radius:6px;overflow:hidden;background:#0b2545;
+}
+.page img{display:block;width:100%;height:100%;object-fit:cover;border-radius:6px;user-select:none;-webkit-user-drag:none}
+.page.is-under{visibility:visible;z-index:5}
+.page.is-current{visibility:visible;z-index:10}
+.page__shade{
+  position:absolute;inset:0;pointer-events:none;opacity:0;border-radius:6px;
+  background:linear-gradient(90deg,rgba(0,0,0,.62) 0%,rgba(0,0,0,.28) 42%,rgba(0,0,0,0) 78%);
+}
+.page.turn-fwd{visibility:visible;z-index:30;animation:turnFwd var(--turn) cubic-bezier(.42,.02,.28,1) forwards}
+.page.turn-fwd .page__shade{animation:shadeIn var(--turn) linear forwards}
+.page.turn-back{visibility:visible;z-index:30;animation:turnBack var(--turn) cubic-bezier(.42,.02,.28,1) forwards}
+.page.turn-back .page__shade{animation:shadeOut var(--turn) linear forwards}
+@keyframes turnFwd{from{transform:rotateY(0)} to{transform:rotateY(-180deg)}}
+@keyframes turnBack{from{transform:rotateY(-180deg)} to{transform:rotateY(0)}}
+@keyframes shadeIn{from{opacity:0} to{opacity:1}}
+@keyframes shadeOut{from{opacity:1} to{opacity:0}}
+
+/* click-to-advance surface, sits under the hotspots */
+.tap{position:absolute;inset:0;z-index:2;cursor:pointer}
+
+/* ---------- hotspots ---------- */
+.hs{
+  position:absolute;z-index:6;display:block;border-radius:10px;text-decoration:none;
+  outline:2px solid transparent;outline-offset:3px;
+  transition:background .18s,box-shadow .18s;
+}
+.hs::after{content:"";position:absolute;inset:0;border-radius:10px;
+  box-shadow:inset 0 0 0 2px transparent;transition:box-shadow .18s}
+.hs:hover{background:rgba(41,168,224,.16)}
+.hs:hover::after{box-shadow:inset 0 0 0 2px rgba(255,255,255,.85)}
+.hs--mango:hover{background:rgba(224,122,36,.18)}
+.hs:focus-visible{outline-color:#fff}
+.hs__pin{
+  position:absolute;left:50%;top:50%;width:30px;height:30px;margin:-15px 0 0 -15px;
+  border-radius:50%;background:rgba(255,255,255,.95);
+  box-shadow:0 3px 14px rgba(0,0,0,.4);
+  display:grid;place-items:center;
+}
+.hs__pin::before{content:"";width:11px;height:11px;border-radius:50%;background:var(--blue)}
+.hs--mango .hs__pin::before{background:var(--orange)}
+.hs--contact .hs__pin::before{background:var(--gold)}
+.hs__pin::after{
+  content:"";position:absolute;inset:0;border-radius:50%;
+  box-shadow:0 0 0 0 rgba(255,255,255,.7);animation:pulse 2.6s ease-out infinite;
+}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(255,255,255,.62)}70%{box-shadow:0 0 0 16px rgba(255,255,255,0)}100%{box-shadow:0 0 0 0 rgba(255,255,255,0)}}
+.hs__tip{
+  position:absolute;left:50%;top:50%;transform:translate(-50%,26px);
+  background:#fff;color:var(--ink);font-size:12px;font-weight:800;letter-spacing:.2px;
+  padding:5px 10px;border-radius:999px;white-space:nowrap;
+  box-shadow:0 4px 16px rgba(0,0,0,.32);opacity:0;transition:opacity .18s;pointer-events:none;
+}
+.hs:hover .hs__tip,.hs:focus-visible .hs__tip{opacity:1}
+/* touch devices get no hover, so show the label outright — but only where
+   there is room for it. On phones two pills sit side by side and collide, so
+   below 700px the pulsing pin carries the affordance on its own. */
+@media(hover:none) and (min-width:701px){.hs__tip{opacity:1}}
+@media(max-width:700px){
+  .hs__tip{display:none}
+  .hs__pin{width:22px;height:22px;margin:-11px 0 0 -11px}
+  .hs__pin::before{width:8px;height:8px}
+}
+.no-pins .hs__pin,.no-pins .hs__tip{display:none}
+
+/* ---------- side arrows ---------- */
+.nav{
+  position:absolute;top:50%;transform:translateY(-50%);z-index:40;
+  width:46px;height:46px;border-radius:50%;display:grid;place-items:center;
+  background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.22);
+  color:#fff;cursor:pointer;backdrop-filter:blur(7px);transition:background .16s,opacity .16s;
+}
+.nav:hover{background:rgba(255,255,255,.26)}
+.nav[disabled]{opacity:.22;cursor:default}
+.nav svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.nav--prev{left:clamp(2px,1.2vw,18px)}
+.nav--next{right:clamp(2px,1.2vw,18px)}
+@media(max-width:640px){.nav{width:38px;height:38px}}
+
+/* ---------- bottom bar ---------- */
+.foot{
+  flex:0 0 auto;display:flex;align-items:center;justify-content:center;gap:14px;
+  padding:10px 16px;padding-bottom:max(10px,env(safe-area-inset-bottom));
+}
+.count{font-variant-numeric:tabular-nums;font-size:13px;font-weight:700;opacity:.9;min-width:64px;text-align:center}
+.scrub{
+  -webkit-appearance:none;appearance:none;width:min(340px,42vw);height:4px;border-radius:99px;
+  background:rgba(255,255,255,.24);outline:none;cursor:pointer;
+}
+.scrub::-webkit-slider-thumb{-webkit-appearance:none;width:16px;height:16px;border-radius:50%;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.4);cursor:grab}
+.scrub::-moz-range-thumb{width:16px;height:16px;border:0;border-radius:50%;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.4)}
+@media(max-width:560px){.scrub{display:none}}
+
+/* ---------- thumbnail drawer ---------- */
+.sheet{
+  position:fixed;inset:0;z-index:80;background:rgba(4,14,28,.86);backdrop-filter:blur(10px);
+  display:none;flex-direction:column;padding:16px;
+}
+.sheet[open]{display:flex}
+.sheet__hd{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.sheet__hd h2{margin:0;font-size:15px;font-weight:800;letter-spacing:.3px}
+.grid{
+  flex:1 1 auto;overflow:auto;display:grid;gap:12px;align-content:start;
+  grid-template-columns:repeat(auto-fill,minmax(150px,1fr));
+}
+.thumb{
+  position:relative;padding:0;border:2px solid transparent;background:none;border-radius:7px;
+  cursor:pointer;overflow:hidden;line-height:0;transition:border-color .15s,transform .15s;
+}
+.thumb img{width:100%;height:auto;display:block;border-radius:5px}
+.thumb span{
+  position:absolute;left:6px;bottom:6px;background:rgba(4,14,28,.85);color:#fff;
+  font-size:11px;font-weight:800;line-height:1;padding:4px 7px;border-radius:5px;
+}
+.thumb:hover{transform:translateY(-2px);border-color:rgba(255,255,255,.55)}
+.thumb.is-on{border-color:var(--blue)}
+
+/* ---------- first-run hint ---------- */
+.hint{
+  position:absolute;left:50%;bottom:14px;transform:translateX(-50%);z-index:45;
+  background:rgba(4,14,28,.82);border:1px solid rgba(255,255,255,.16);
+  padding:8px 15px;border-radius:999px;font-size:12.5px;font-weight:600;letter-spacing:.2px;
+  pointer-events:none;transition:opacity .5s;white-space:nowrap;
+}
+.hint.gone{opacity:0}
+
+/* ---------- last-page CTA ---------- */
+.endcta{
+  position:absolute;left:50%;bottom:16px;transform:translateX(-50%) translateY(12px);
+  z-index:46;opacity:0;pointer-events:none;transition:opacity .35s,transform .35s;
+}
+.endcta.on{opacity:1;transform:translateX(-50%) translateY(0);pointer-events:auto}
+
+@media (prefers-reduced-motion:reduce){
+  .page.turn-fwd,.page.turn-back{animation-duration:1ms}
+  .page.turn-fwd .page__shade,.page.turn-back .page__shade{animation-duration:1ms}
+  .hs__pin::after{animation:none}
+  *{transition-duration:.01ms !important}
+}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <header class="bar">
+    <div class="brand">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" fill="#0b2545"/><path d="M4 20c3-3 6-3 8 0s5 3 8 0 5-3 8 0" stroke="#29a8e0" stroke-width="3.2" fill="none" stroke-linecap="round"/><circle cx="16" cy="10" r="4.2" fill="#f2c21b"/></svg>
+      <b>PoolSide</b><span>Brand Playbook</span>
+    </div>
+    <div class="bar__sp"></div>
+    <button class="btn btn--icon" id="btnGrid" aria-label="All pages" title="All pages">
+      <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+    </button>
+    <button class="btn btn--icon" id="btnFull" aria-label="Fullscreen" title="Fullscreen">
+      <svg viewBox="0 0 24 24"><path d="M4 9V5a1 1 0 011-1h4M20 9V5a1 1 0 00-1-1h-4M4 15v4a1 1 0 001 1h4M20 15v4a1 1 0 01-1 1h-4"/></svg>
+    </button>
+    <a class="btn" id="btnPdf" href="PoolSide-Brand-Playbook.pdf" download>
+      <svg viewBox="0 0 24 24"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 19h16"/></svg><span class="btn__t">PDF</span>
+    </a>
+    <a class="btn btn--cta" href="https://drinkpoolside.com/pages/contact" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24"><path d="M4 6h16v12H4z"/><path d="M4 7l8 6 8-6"/></svg><span class="btn__t">Contact us</span>
+    </a>
+    <button class="btn btn--icon" id="btnClose" aria-label="Close" title="Close" hidden>
+      <svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+  </header>
+
+  <main class="stage">
+    <button class="nav nav--prev" id="prev" aria-label="Previous page">
+      <svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>
+    </button>
+
+    <div class="book" id="book" role="region" aria-roledescription="flipbook" aria-label="PoolSide Brand Playbook, 17 pages">
+      <div class="tap" id="tap" role="button" tabindex="0" aria-label="Next page"></div>
+      <figure class="page" data-page="1" aria-label="Page 1 of 17">
+        <picture>
+          <source srcset="pages/page-01.webp" type="image/webp">
+          <img src="pages/page-01.jpg" alt="Cover — PoolSide Company Overview, internal sales and training guide." width="1448" height="1086" decoding="async" fetchpriority="high">
+        </picture>
+        <span class="page__shade" aria-hidden="true"></span>
+        <a class="hs hs--flavorless" href="https://drinkpoolside.com/products/poolside-flavorless-thc-drink-mix-10mg" target="_blank" rel="noopener" style="left:47.180%;top:35.600%;width:15.080%;height:48.900%" aria-label="Shop Flavorless"><span class="hs__pin" aria-hidden="true"></span><span class="hs__tip">Shop Flavorless</span></a>
+        <a class="hs hs--mango" href="https://drinkpoolside.com/products/poolside-flavorless-thc-drink-mix-10mg-copy" target="_blank" rel="noopener" style="left:63.060%;top:35.500%;width:15.940%;height:49.000%" aria-label="Shop Mango"><span class="hs__pin" aria-hidden="true"></span><span class="hs__tip">Shop Mango</span></a>
+      </figure>
+      <figure class="page" data-page="2" aria-label="Page 2 of 17">
+        <picture>
+          <source srcset="pages/page-02.webp" type="image/webp">
+          <img src="pages/page-02.jpg" alt="Our Mission — a letter from founder and CEO Aaron King on why PoolSide was created." width="1448" height="1086" decoding="async">
+        </picture>
+        <span class="page__shade" aria-hidden="true"></span>
+        <a class="hs hs--flavorless" href="https://drinkpoolside.com/products/poolside-flavorless-thc-drink-mix-10mg" target="_blank" rel="noopener" style="left:63.130%;top:31.310%;width:20.980%;height:49.190%" aria-label="Shop Flavorless"><span class="hs__pin" aria-hidden="true"></span><span class="hs__tip">Shop Flavorless</span></a>
+      </figure>
+      <figure class="page" data-page="3" aria-label="Page 3 of 17">
+        <picture>
+          <source data-srcset="pages/page-03.webp" type="image/webp">
+          <img data-src="pages/page-03.jpg" alt="What is PoolSide? — a premium fast-acting hemp-derived THC drink mix, 15 minute onset, mixes into any cold beverage, portable, consistent 10mg dose." width="1448" height="1086" decoding="async">
+        </picture>
+        <span class="page__shade" aria-hidden="true"></span>
+        <a class="hs hs--flavorless" href="https://drinkpoolside.com/products/poolside-flavorless-thc-drink-mix-10mg" target="_blank" rel="noopener" style="left:51.030%;top:22.900%;width:24.140%;height:53.300%" aria-label="Shop Flavorless"><span class="hs__pin" aria-hidden="true"></span><span class="hs__tip">Shop Flavorless</span></a>
+      </figure>
+      <figure class="page" data-page="4" aria-label="Page 4 of 17">
+        <picture>
+          <source data-srcset="pages/page-04.webp" type="image/webp">
+          <img data-src="pages/page-04.jpg" alt="Why Consumers Love PoolSide — better-for-you hemp-derived THC, non-intoxicating experience, easy to carry, an alternative to alcohol." width="1448" height="1086" decoding="async">
+        </picture>
+        <span class="page__shade" aria-hidden="true"></span>
+        <a class="hs hs--flavorless" href="https://drinkpoolside.com/products/poolside-flavorless-thc-drink-mix-10mg" target="_blank" rel="noopener" style="left:42.000%;top:36.600%;width:16.660%;height:48.900%" aria-label="Shop Flavorless"><span class="hs__pin" aria-hidden="true"></span><span class="hs__tip">Shop Flavorless</span></a>
+        <a class="hs hs--mango" href="https://drinkpoolside.com/products/poolside-flavorless-thc-drink-mix-10mg-copy" target="_blank" rel="noopener" style="left:59.460%;top:36.700%;width:17.230%;height:48.800%" aria-label="Shop Mango"><span class="hs__pin" aria-hidden="true"></span><span class="hs__tip">Shop Mango</span></a>
+      </figure>
+      <figure class="page" data-page="5" aria-label="Page 5 of 17">
+        <picture>
+          <source data-srcset="pages/page-05.webp" type="image/webp">
+          <img data-src="pages/page-05.jpg" alt="Why PoolSide Exists — alcohol consumption is declining, adults want approachable alternatives, THC beverage growth is accelerating, consumers are moving away from smoking." width="1448" height="1086" decoding="async">
+        </picture>
+        <span class="page__shade" aria-hidden="true"></span>
+        <a class="hs hs--flavorless" href="https://drinkpoolside.com/products/poolside-flavorless-thc-drink-mix-10mg" target="_blank" rel="noopener" style="left:10.580%;top:58.700%;width:13.640%;height:30.600%" aria-label="Shop Flavorless"><span class="hs__pin" aria-hidden="true"></span><span class="hs__tip">Shop Flavorless</span></a>
+        <a class="hs hs--mango" href="https://drinkpoolside.com/products/poolside-flavorless-thc-drink-mix-10mg-copy" target="_blank" rel="noopener" style="left:25.680%;top:58.900%;width:13.640%;height:30.400%" aria-label="Shop Mango"><span class="hs__pin" aria-hidden="true"></span><span class="hs__tip">Shop Mango</span></a>
+      </figure>
+      <figure class="page" data-page="6" aria-label="Page 6 of 17">
+        <picture>
+          <source data-srcset="pages/page-06.webp" type="image/webp">
+          <img data-src="pages/page-06.jpg" alt="What is Delta-9 THC? — PoolSide contains 10mg active hemp-derived Delta-9 THC per pouch: hemp-derived, precisely dosed, fast acting, third-party tested." width="1448" height="1086" decoding="async">
+        </picture>
+        <span class="page__shade" aria-hidden="true"></span>
+
+      </figure>
+      <figure class="page" data-page="7" aria-label="Page 7 of 17">
+        <picture>
+          <source data-srcset="pages/page-07.webp" type="image/webp">
+          <img data-src="pages/page-07.jpg" alt="Nano-Soluble Technology — traditional THC versus PoolSide nano technology: mixes evenly, smooth taste, 15 to 30 minute onset, more efficient absorption, no oily residue." width="1448" height="1086" decoding="async">
+        </picture>
+        <span class="page__shade" aria-hidden="true"></span>
+
+      </figure>
+      <figure class="page" data-page="8" aria-label="Page 8 of 17">
+        <picture>
+          <source data-srcset="pages/page-08.webp" type="image/webp">
+          <img data-src="pages/page-08.jpg" alt="Why PoolSide is Legal — made with hemp-derived Delta-9 THC under the 2018 Farm Bill, which defines hemp as no more than 0.3% Delta-9 THC on a dry weight basis." width="1448" height="1086" decoding="async">
+        </picture>
+        <span class="page__shade" aria-hidden="true"></span>
+        <a class="hs hs--flavorless" href="https://drinkpoolside.com/products/poolside-flavorless-thc-drink-mix-10mg" target="_blank" rel="noopener" style="left:42.360%;top:47.500%;width:14.480%;height:32.500%" aria-label="Shop Flavorless"><span class="hs__pin" aria-hidden="true"></span><span class="hs__tip">Shop Flavorless</span></a>
+      </figure>
+      <figure class="page" data-page="9" aria-label="Page 9 of 17">
+        <picture>
+          <source data-srcset="pages/page-09.webp" type="image/webp">
+          <img data-src="pages/page-09.jpg" alt="Our Flavors — Flavorless, virtually tasteless and best with coffee, water, tea, soda or juice; and Mango, tropical and refreshing, best with water, sparkling water or a smoothie." width="1448" height="1086" decoding="async">
+        </picture>
+        <span class="page__shade" aria-hidden="true"></span>
+        <a class="hs hs--flavorless" href="https://drinkpoolside.com/products/poolside-flavorless-thc-drink-mix-10mg" target="_blank" rel="noopener" style="left:6.800%;top:18.300%;width:17.600%;height:57.900%" aria-label="Shop Flavorless"><span class="hs__pin" aria-hidden="true"></span><span class="hs__tip">Shop Flavorless</span></a>
+        <a class="hs hs--mango" href="https://drinkpoolside.com/products/poolside-flavorless-thc-drink-mix-10mg-copy" target="_blank" rel="noopener" style="left:54.630%;top:18.400%;width:18.040%;height:57.800%" aria-label="Shop Mango"><span class="hs__pin" aria-hidden="true"></span><span class="hs__tip">Shop Mango</span></a>
+      </figure>
+      <figure class="page" data-page="10" aria-label="Page 10 of 17">
+        <picture>
+          <source data-srcset="pages/page-10.webp" type="image/webp">
+          <img data-src="pages/page-10.jpg" alt="Ingredients — purified water, citric acid, sodium benzoate, potassium sorbate, ascorbic acid and hemp-derived Delta-9 THC. Zero alcohol, zero calories, zero sugar." width="1448" height="1086" decoding="async">
+        </picture>
+        <span class="page__shade" aria-hidden="true"></span>
+        <a class="hs hs--flavorless" href="https://drinkpoolside.com/products/poolside-flavorless-thc-drink-mix-10mg" target="_blank" rel="noopener" style="left:57.510%;top:48.200%;width:16.180%;height:39.000%" aria-label="Shop Flavorless"><span class="hs__pin" aria-hidden="true"></span><span class="hs__tip">Shop Flavorless</span></a>
+        <a class="hs hs--mango" href="https://drinkpoolside.com/products/poolside-flavorless-thc-drink-mix-10mg-copy" target="_blank" rel="noopener" style="left:76.060%;top:47.900%;width:16.480%;height:39.300%" aria-label="Shop Mango"><span class="hs__pin" aria-hidden="true"></span><span class="hs__tip">Shop Mango</span></a>
+      </figure>
+      <figure class="page" data-page="11" aria-label="Page 11 of 17">
+        <picture>
+          <source data-srcset="pages/page-11.webp" type="image/webp">
+          <img data-src="pages/page-11.jpg" alt="Nutrition Facts — 0 calories per pouch, 10mg hemp-derived Delta-9 THC as the active ingredient." width="1448" height="1086" decoding="async">
+        </picture>
+        <span class="page__shade" aria-hidden="true"></span>
+
+      </figure>
+      <figure class="page" data-page="12" aria-label="Page 12 of 17">
+        <picture>
+          <source data-srcset="pages/page-12.webp" type="image/webp">
+          <img data-src="pages/page-12.jpg" alt="Directions For Use — tear open the pouch, pour into 8 to 16 fl oz of your beverage, stir or shake well, enjoy responsibly. Do not exceed one pouch in 24 hours." width="1448" height="1086" decoding="async">
+        </picture>
+        <span class="page__shade" aria-hidden="true"></span>
+
+      </figure>
+      <figure class="page" data-page="13" aria-label="Page 13 of 17">
+        <picture>
+          <source data-srcset="pages/page-13.webp" type="image/webp">
+          <img data-src="pages/page-13.jpg" alt="Safety Information — 21+ only, keep out of reach of children and pets, do not drive, not for use during pregnancy, may cause a positive drug test, store in a cool dry place." width="1448" height="1086" decoding="async">
+        </picture>
+        <span class="page__shade" aria-hidden="true"></span>
+
+      </figure>
+      <figure class="page" data-page="14" aria-label="Page 14 of 17">
+        <picture>
+          <source data-srcset="pages/page-14.webp" type="image/webp">
+          <img data-src="pages/page-14.jpg" alt="Compliance Statements — FDA disclaimer and hemp compliance statement." width="1448" height="1086" decoding="async">
+        </picture>
+        <span class="page__shade" aria-hidden="true"></span>
+
+      </figure>
+      <figure class="page" data-page="15" aria-label="Page 15 of 17">
+        <picture>
+          <source data-srcset="pages/page-15.webp" type="image/webp">
+          <img data-src="pages/page-15.jpg" alt="Why Retailers Love PoolSide — high margin, fast turns, no refrigeration, small footprint, versatile fit and a trending category." width="1448" height="1086" decoding="async">
+        </picture>
+        <span class="page__shade" aria-hidden="true"></span>
+        <a class="hs hs--flavorless" href="https://drinkpoolside.com/products/poolside-flavorless-thc-drink-mix-10mg" target="_blank" rel="noopener" style="left:43.920%;top:31.000%;width:14.760%;height:48.200%" aria-label="Shop Flavorless"><span class="hs__pin" aria-hidden="true"></span><span class="hs__tip">Shop Flavorless</span></a>
+        <a class="hs hs--flavorless" href="https://drinkpoolside.com/products/poolside-flavorless-thc-drink-mix-10mg" target="_blank" rel="noopener" style="left:60.000%;top:21.600%;width:20.000%;height:55.900%" aria-label="Shop Flavorless"><span class="hs__pin" aria-hidden="true"></span><span class="hs__tip">Shop Flavorless</span></a>
+      </figure>
+      <figure class="page" data-page="16" aria-label="Page 16 of 17">
+        <picture>
+          <source data-srcset="pages/page-16.webp" type="image/webp">
+          <img data-src="pages/page-16.jpg" alt="Frequently Asked Questions about onset time, mixing with alcohol, safety, drug tests and storage." width="1448" height="1086" decoding="async">
+        </picture>
+        <span class="page__shade" aria-hidden="true"></span>
+
+      </figure>
+      <figure class="page" data-page="17" aria-label="Page 17 of 17">
+        <picture>
+          <source data-srcset="pages/page-17.webp" type="image/webp">
+          <img data-src="pages/page-17.jpg" alt="Elevate every moment — PoolSide 10mg THC Drink Mix. Visit drinkpoolside.com or @poolside.social." width="1448" height="1086" decoding="async">
+        </picture>
+        <span class="page__shade" aria-hidden="true"></span>
+        <a class="hs hs--mango" href="https://drinkpoolside.com/products/poolside-flavorless-thc-drink-mix-10mg-copy" target="_blank" rel="noopener" style="left:30.850%;top:32.000%;width:17.000%;height:47.000%" aria-label="Shop Mango"><span class="hs__pin" aria-hidden="true"></span><span class="hs__tip">Shop Mango</span></a>
+        <a class="hs hs--flavorless" href="https://drinkpoolside.com/products/poolside-flavorless-thc-drink-mix-10mg" target="_blank" rel="noopener" style="left:48.650%;top:32.200%;width:16.290%;height:46.800%" aria-label="Shop Flavorless"><span class="hs__pin" aria-hidden="true"></span><span class="hs__tip">Shop Flavorless</span></a>
+        <a class="hs hs--contact" href="https://drinkpoolside.com/pages/contact" target="_blank" rel="noopener" style="left:79.500%;top:47.000%;width:19.000%;height:29.500%" aria-label="Contact PoolSide"><span class="hs__pin" aria-hidden="true"></span><span class="hs__tip">Contact us</span></a>
+      </figure>
+    </div>
+
+    <button class="nav nav--next" id="next" aria-label="Next page">
+      <svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>
+    </button>
+
+    <div class="hint" id="hint">Click the page to turn &nbsp;·&nbsp; tap a product to shop it</div>
+    <a class="btn btn--cta endcta" id="endcta" href="https://drinkpoolside.com/pages/contact" target="_blank" rel="noopener">
+      Get in touch with our team →
+    </a>
+  </main>
+
+  <footer class="foot">
+    <span class="count" id="count">1 / 17</span>
+    <input class="scrub" id="scrub" type="range" min="1" max="17" value="1" step="1" aria-label="Jump to page">
+  </footer>
+</div>
+
+<div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-label="All pages">
+  <div class="sheet__hd">
+    <h2>All pages</h2><div class="bar__sp"></div>
+    <button class="btn btn--icon" id="gridClose" aria-label="Close">
+      <svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+  </div>
+  <div class="grid" id="grid">
+        <button class="thumb" data-goto="1" aria-label="Go to page 1"><img src="pages/thumb-01.webp" alt="" width="300" height="225" loading="lazy" decoding="async"><span>1</span></button>
+        <button class="thumb" data-goto="2" aria-label="Go to page 2"><img src="pages/thumb-02.webp" alt="" width="300" height="225" loading="lazy" decoding="async"><span>2</span></button>
+        <button class="thumb" data-goto="3" aria-label="Go to page 3"><img src="pages/thumb-03.webp" alt="" width="300" height="225" loading="lazy" decoding="async"><span>3</span></button>
+        <button class="thumb" data-goto="4" aria-label="Go to page 4"><img src="pages/thumb-04.webp" alt="" width="300" height="225" loading="lazy" decoding="async"><span>4</span></button>
+        <button class="thumb" data-goto="5" aria-label="Go to page 5"><img src="pages/thumb-05.webp" alt="" width="300" height="225" loading="lazy" decoding="async"><span>5</span></button>
+        <button class="thumb" data-goto="6" aria-label="Go to page 6"><img src="pages/thumb-06.webp" alt="" width="300" height="225" loading="lazy" decoding="async"><span>6</span></button>
+        <button class="thumb" data-goto="7" aria-label="Go to page 7"><img src="pages/thumb-07.webp" alt="" width="300" height="225" loading="lazy" decoding="async"><span>7</span></button>
+        <button class="thumb" data-goto="8" aria-label="Go to page 8"><img src="pages/thumb-08.webp" alt="" width="300" height="225" loading="lazy" decoding="async"><span>8</span></button>
+        <button class="thumb" data-goto="9" aria-label="Go to page 9"><img src="pages/thumb-09.webp" alt="" width="300" height="225" loading="lazy" decoding="async"><span>9</span></button>
+        <button class="thumb" data-goto="10" aria-label="Go to page 10"><img src="pages/thumb-10.webp" alt="" width="300" height="225" loading="lazy" decoding="async"><span>10</span></button>
+        <button class="thumb" data-goto="11" aria-label="Go to page 11"><img src="pages/thumb-11.webp" alt="" width="300" height="225" loading="lazy" decoding="async"><span>11</span></button>
+        <button class="thumb" data-goto="12" aria-label="Go to page 12"><img src="pages/thumb-12.webp" alt="" width="300" height="225" loading="lazy" decoding="async"><span>12</span></button>
+        <button class="thumb" data-goto="13" aria-label="Go to page 13"><img src="pages/thumb-13.webp" alt="" width="300" height="225" loading="lazy" decoding="async"><span>13</span></button>
+        <button class="thumb" data-goto="14" aria-label="Go to page 14"><img src="pages/thumb-14.webp" alt="" width="300" height="225" loading="lazy" decoding="async"><span>14</span></button>
+        <button class="thumb" data-goto="15" aria-label="Go to page 15"><img src="pages/thumb-15.webp" alt="" width="300" height="225" loading="lazy" decoding="async"><span>15</span></button>
+        <button class="thumb" data-goto="16" aria-label="Go to page 16"><img src="pages/thumb-16.webp" alt="" width="300" height="225" loading="lazy" decoding="async"><span>16</span></button>
+        <button class="thumb" data-goto="17" aria-label="Go to page 17"><img src="pages/thumb-17.webp" alt="" width="300" height="225" loading="lazy" decoding="async"><span>17</span></button>
+  </div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var TOTAL = 17;
+  var book  = document.getElementById('book');
+  var pages = Array.prototype.slice.call(book.querySelectorAll('.page'));
+  var cur = 1, busy = false;
+
+  // read the turn duration from CSS so the safety net can never cut a turn short
+  var TURN = (function(){
+    var v = getComputedStyle(document.documentElement).getPropertyValue('--turn').trim();
+    var n = parseFloat(v) || 720;
+    return /ms$/.test(v) ? n : n * 1000;
+  })();
+
+  function clamp(n){ return Math.max(1, Math.min(TOTAL, n)); }
+
+  // swap data-src -> src so the page actually downloads, even though it is
+  // sitting in a hidden layer that the lazy-loader would never trigger on
+  function hydrate(n){
+    var p = pages[n-1]; if (!p) return;
+    var s = p.querySelector('source[data-srcset]');
+    if (s){ s.srcset = s.dataset.srcset; s.removeAttribute('data-srcset'); }
+    var img = p.querySelector('img[data-src]');
+    if (img){ img.src = img.dataset.src; img.removeAttribute('data-src'); }
+  }
+
+  function paint(){
+    pages.forEach(function(p, i){
+      p.classList.remove('is-current','is-under','turn-fwd','turn-back');
+      p.style.transform = '';
+      p.classList.toggle('is-current', i === cur-1);
+    });
+    document.getElementById('count').textContent = cur + ' / ' + TOTAL;
+    document.getElementById('scrub').value = cur;
+    document.getElementById('prev').disabled = (cur === 1);
+    document.getElementById('next').disabled = (cur === TOTAL);
+    document.getElementById('endcta').classList.toggle('on', cur === TOTAL);
+    Array.prototype.forEach.call(document.querySelectorAll('.thumb'), function(t){
+      t.classList.toggle('is-on', +t.dataset.goto === cur);
+    });
+    // keep neighbours warm so the next turn never shows a blank page
+    [cur, cur-1, cur+1, cur+2].forEach(hydrate);
+    try{ history.replaceState(null,'','#p=' + cur); }catch(e){}
+  }
+
+  function go(to, animate){
+    to = clamp(to);
+    if (busy || to === cur) return;
+    var from = cur;
+    if (animate === false || Math.abs(to - from) > 1){ cur = to; paint(); return; }
+
+    busy = true;
+    var fwd  = to > from;
+    var leaf = pages[(fwd ? from : to) - 1];   // the page that visually turns
+    var base = pages[(fwd ? to : from) - 1];   // the page revealed underneath
+
+    base.classList.add('is-under');
+    leaf.classList.remove('is-current');
+    leaf.classList.add(fwd ? 'turn-fwd' : 'turn-back');
+
+    var done = false;
+    function finish(){
+      if (done) return; done = true;
+      leaf.removeEventListener('animationend', finish);
+      cur = to; busy = false; paint();
+    }
+    leaf.addEventListener('animationend', finish);
+    setTimeout(finish, TURN + 260);   // safety net if animationend never fires
+  }
+
+  var next = function(){ go(cur+1); }, prev = function(){ go(cur-1); };
+  document.getElementById('next').addEventListener('click', next);
+  document.getElementById('prev').addEventListener('click', prev);
+
+  // click / tap the page to advance (hotspots sit above this layer and swallow their own clicks)
+  var tap = document.getElementById('tap');
+  tap.addEventListener('click', next);
+  tap.addEventListener('keydown', function(e){
+    if (e.key === 'Enter' || e.key === ' '){ e.preventDefault(); next(); }
+  });
+
+  document.addEventListener('keydown', function(e){
+    if (document.getElementById('sheet').hasAttribute('open')){
+      if (e.key === 'Escape') closeGrid();
+      return;
+    }
+    if (e.key === 'ArrowRight' || e.key === 'PageDown'){ e.preventDefault(); next(); }
+    else if (e.key === 'ArrowLeft' || e.key === 'PageUp'){ e.preventDefault(); prev(); }
+    else if (e.key === 'Home'){ e.preventDefault(); go(1,false); }
+    else if (e.key === 'End'){ e.preventDefault(); go(TOTAL,false); }
+  });
+
+  // swipe
+  var sx=0, sy=0, tracking=false;
+  book.addEventListener('touchstart', function(e){
+    if (e.touches.length !== 1) return;
+    sx = e.touches[0].clientX; sy = e.touches[0].clientY; tracking = true;
+  }, {passive:true});
+  book.addEventListener('touchend', function(e){
+    if (!tracking) return; tracking = false;
+    var t = e.changedTouches[0], dx = t.clientX - sx, dy = t.clientY - sy;
+    if (Math.abs(dx) > 45 && Math.abs(dx) > Math.abs(dy) * 1.6){ dx < 0 ? next() : prev(); }
+  }, {passive:true});
+
+  document.getElementById('scrub').addEventListener('input', function(){ go(+this.value, false); });
+
+  // thumbnail drawer
+  var sheet = document.getElementById('sheet');
+  function openGrid(){ sheet.setAttribute('open',''); document.getElementById('gridClose').focus(); }
+  function closeGrid(){ sheet.removeAttribute('open'); document.getElementById('btnGrid').focus(); }
+  document.getElementById('btnGrid').addEventListener('click', openGrid);
+  document.getElementById('gridClose').addEventListener('click', closeGrid);
+  sheet.addEventListener('click', function(e){ if (e.target === sheet) closeGrid(); });
+  document.getElementById('grid').addEventListener('click', function(e){
+    var b = e.target.closest('.thumb'); if (!b) return;
+    go(+b.dataset.goto, false); closeGrid();
+  });
+
+  // fullscreen
+  document.getElementById('btnFull').addEventListener('click', function(){
+    var el = document.documentElement;
+    if (document.fullscreenElement) document.exitFullscreen();
+    else if (el.requestFullscreen) el.requestFullscreen();
+    else if (el.webkitRequestFullscreen) el.webkitRequestFullscreen();
+  });
+
+  // when embedded in a modal, show a close button that tells the parent page
+  if (window.self !== window.top){
+    var bc = document.getElementById('btnClose');
+    bc.hidden = false;
+    bc.addEventListener('click', function(){
+      parent.postMessage({type:'poolside-playbook-close'}, '*');
+    });
+  }
+
+  // deep link  ...#p=7
+  var m = /(?:^|[#&])p=(\d+)/.exec(location.hash);
+  if (m) cur = clamp(+m[1]);
+
+  paint();
+
+  var hint = document.getElementById('hint');
+  setTimeout(function(){ hint.classList.add('gone'); }, 5200);
+})();
+</script>
+</body>
+</html>

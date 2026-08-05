@@ -1,0 +1,141 @@
+<!-- ============================================================
+     PoolSide Brand Playbook — POP-UP BUTTON
+     ------------------------------------------------------------
+     Put this anywhere on drinkpoolside.com (a Custom Liquid section,
+     a page's HTML editor, or your theme's footer include).
+
+     STEP 1 — change PLAYBOOK_URL below to wherever you hosted the
+              flipbook, e.g. https://playbook.drinkpoolside.com/
+     STEP 2 — put the button wherever you want it. You can use the
+              markup below, or add class="ps-playbook-open" to ANY
+              existing button or link on the page and it will work.
+     ============================================================ -->
+
+<!-- ---------- the button (restyle freely) ---------- -->
+<button type="button" class="ps-playbook-open ps-playbook-btn">
+  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+       stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M2 5.5A2.5 2.5 0 014.5 3H10v16H4.5A2.5 2.5 0 002 21.5zM22 5.5A2.5 2.5 0 0019.5 3H14v16h5.5a2.5 2.5 0 012.5 2.5z"/>
+  </svg>
+  View the Brand Playbook
+</button>
+
+<!-- ---------- modal + script (paste once per page) ---------- -->
+<div class="ps-playbook-modal" id="psPlaybookModal" role="dialog" aria-modal="true"
+     aria-label="PoolSide Brand Playbook" hidden>
+  <div class="ps-playbook-backdrop" data-ps-close></div>
+  <div class="ps-playbook-frame">
+    <button type="button" class="ps-playbook-x" data-ps-close aria-label="Close">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+           stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <div class="ps-playbook-load">Loading the playbook…</div>
+    <iframe title="PoolSide Brand Playbook" loading="lazy"
+            allow="fullscreen" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </div>
+</div>
+
+<style>
+.ps-playbook-btn{
+  display:inline-flex;align-items:center;gap:9px;cursor:pointer;
+  background:linear-gradient(180deg,#29a8e0,#1b7fb8);color:#fff;border:0;
+  font:600 15px/1 inherit;letter-spacing:.2px;
+  padding:14px 22px;border-radius:999px;
+  box-shadow:0 6px 18px rgba(27,127,184,.34);
+  transition:transform .12s ease, box-shadow .18s ease, filter .18s ease;
+}
+.ps-playbook-btn:hover{filter:brightness(1.06);box-shadow:0 8px 24px rgba(27,127,184,.44)}
+.ps-playbook-btn:active{transform:translateY(1px)}
+
+.ps-playbook-modal{position:fixed;inset:0;z-index:99999}
+.ps-playbook-modal[hidden]{display:none}
+.ps-playbook-backdrop{
+  position:absolute;inset:0;background:rgba(5,16,30,.78);
+  -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);
+}
+/* Nothing here fades in from opacity:0. Visibility is controlled ONLY by the
+   [hidden] attribute, so the modal can never end up present-but-invisible if
+   the browser throttles animations (background tab, reduced motion, low power).
+   The entry animation is transform-only — worst case the panel sits 14px low. */
+.ps-playbook-frame{
+  position:absolute;inset:0;margin:auto;
+  width:min(1360px,96vw);height:min(880px,94dvh);
+  background:#0b2545;border-radius:16px;overflow:hidden;
+  box-shadow:0 30px 90px rgba(0,0,0,.6);
+  transform:translateY(14px) scale(.985);
+  transition:transform .3s cubic-bezier(.2,.7,.3,1);
+}
+.ps-playbook-modal.is-open .ps-playbook-frame{transform:none}
+.ps-playbook-frame iframe{position:relative;z-index:1;width:100%;height:100%;border:0;display:block}
+.ps-playbook-load{
+  position:absolute;inset:0;display:grid;place-items:center;z-index:0;
+  color:#cfe6f5;font:500 14px/1 inherit;letter-spacing:.3px;
+}
+.ps-playbook-x{
+  position:absolute;top:10px;right:12px;z-index:3;
+  width:38px;height:38px;border-radius:50%;display:grid;place-items:center;cursor:pointer;
+  background:rgba(9,25,45,.72);color:#fff;border:1px solid rgba(255,255,255,.22);
+  -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);
+}
+.ps-playbook-x:hover{background:rgba(9,25,45,.92)}
+@media(max-width:700px){
+  .ps-playbook-frame{width:100vw;height:100dvh;border-radius:0}
+}
+@media (prefers-reduced-motion:reduce){
+  .ps-playbook-backdrop,.ps-playbook-frame{transition:none}
+}
+</style>
+
+<script>
+(function(){
+  /* >>> CHANGE THIS to your hosted flipbook URL <<< */
+  var PLAYBOOK_URL = "https://playbook.drinkpoolside.com/";
+
+  var modal = document.getElementById('psPlaybookModal');
+  if (!modal || modal.dataset.psReady) return;
+  modal.dataset.psReady = "1";
+
+  var frame  = modal.querySelector('iframe');
+  var opener = null;
+
+  function open(e){
+    if (e) e.preventDefault();
+    opener = document.activeElement;
+    if (!frame.getAttribute('src')) frame.setAttribute('src', PLAYBOOK_URL);
+    modal.hidden = false;
+    document.body.style.overflow = 'hidden';
+    /* force a reflow so the CSS transition has a start state, then reveal.
+       (doing this synchronously — requestAnimationFrame is throttled in
+       background tabs and would leave the modal stuck at opacity:0) */
+    void modal.offsetWidth;
+    modal.classList.add('is-open');
+    setTimeout(function(){ modal.querySelector('.ps-playbook-x').focus(); }, 60);
+  }
+
+  function close(){
+    modal.classList.remove('is-open');
+    document.body.style.overflow = '';
+    setTimeout(function(){ modal.hidden = true; }, 260);
+    if (opener && opener.focus) opener.focus();
+  }
+
+  /* works for the button above AND any element you tag with .ps-playbook-open */
+  document.addEventListener('click', function(e){
+    var o = e.target.closest('.ps-playbook-open');
+    if (o) return open(e);
+    if (e.target.closest('[data-ps-close]')) close();
+  });
+
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape' && !modal.hidden) close();
+  });
+
+  /* the flipbook's own X button asks the parent page to close the modal */
+  window.addEventListener('message', function(e){
+    if (e.data && e.data.type === 'poolside-playbook-close') close();
+  });
+
+  /* deep link:  /pages/anything#playbook  opens it automatically */
+  if (location.hash === '#playbook') open();
+})();
+</script>

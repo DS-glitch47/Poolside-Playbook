@@ -1,0 +1,78 @@
+<!-- ============================================================
+     PoolSide Brand Playbook — DEDICATED PAGE EMBED
+     ------------------------------------------------------------
+     For a page of its own at drinkpoolside.com/pages/brand-playbook
+
+     Shopify admin > Online Store > Pages > Add page
+       Title:  Brand Playbook
+       Content: click the "<>" (Show HTML) button in the toolbar,
+                then paste everything below.
+
+     STEP 1 — change PLAYBOOK_URL in the <script> at the bottom.
+     STEP 2 — in Search engine listing, set the meta description to
+              something like: "Everything about PoolSide 10mg THC
+              Drink Mix — how it works, our flavors, ingredients,
+              compliance and FAQ. Flip through the full playbook."
+
+     NOTE: some Shopify themes strip <script> from the page editor.
+     If the iframe stays blank, use a Custom Liquid section instead
+     (Customize > Add section > Custom Liquid) and paste this there.
+     ============================================================ -->
+
+<div class="ps-pb-page">
+  <div class="ps-pb-intro">
+    <h1>The PoolSide Brand Playbook</h1>
+    <p>
+      Everything worth knowing about PoolSide 10&nbsp;mg THC Drink Mix — how our
+      nano-soluble technology works, what goes in every pouch, why it's legal,
+      and the answers we get asked most. Flip through all 17 pages below, and
+      tap any pouch to shop that flavor.
+    </p>
+  </div>
+
+  <div class="ps-pb-embed">
+    <iframe id="psPlaybookFrame"
+            title="PoolSide Brand Playbook — 17 page flipbook"
+            loading="lazy" allow="fullscreen"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </div>
+
+  <p class="ps-pb-fallback">
+    Having trouble viewing it?
+    <a id="psPlaybookDirect" href="#" target="_blank" rel="noopener">Open the playbook in a new tab</a>
+    or <a href="/pages/contact">get in touch with our team</a>.
+  </p>
+</div>
+
+<style>
+.ps-pb-page{max-width:1360px;margin:0 auto;padding:8px 16px 48px}
+.ps-pb-intro{max-width:760px;margin:0 auto 26px;text-align:center}
+.ps-pb-intro h1{margin:0 0 12px;font-size:clamp(28px,4.2vw,42px);line-height:1.12;letter-spacing:-.01em}
+.ps-pb-intro p{margin:0;font-size:16.5px;line-height:1.62;opacity:.82}
+.ps-pb-embed{
+  position:relative;width:100%;
+  /* tall enough for the flipbook chrome, but never taller than the screen */
+  height:min(860px,86dvh);min-height:460px;
+  border-radius:16px;overflow:hidden;background:#0b2545;
+  box-shadow:0 18px 50px rgba(6,24,45,.28);
+}
+.ps-pb-embed iframe{width:100%;height:100%;border:0;display:block}
+.ps-pb-fallback{margin:16px 0 0;text-align:center;font-size:14px;opacity:.72}
+.ps-pb-fallback a{text-decoration:underline}
+@media(max-width:700px){
+  .ps-pb-page{padding:4px 10px 34px}
+  .ps-pb-embed{height:78dvh;border-radius:12px}
+}
+</style>
+
+<script>
+(function(){
+  /* >>> CHANGE THIS to your hosted flipbook URL <<< */
+  var PLAYBOOK_URL = "https://playbook.drinkpoolside.com/";
+
+  var f = document.getElementById('psPlaybookFrame');
+  var d = document.getElementById('psPlaybookDirect');
+  if (f) f.src = PLAYBOOK_URL;
+  if (d) d.href = PLAYBOOK_URL;
+})();
+</script>
