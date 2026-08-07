@@ -27,27 +27,30 @@ CONTACT = "https://drinkpoolside.com/pages/contact"
 
 # Per-page alt text — real descriptions matter for SEO and screen readers.
 ALT = {
-    1:  "Cover — PoolSide Company Overview, internal sales and training guide.",
-    2:  "Our Mission — a letter from founder and CEO Aaron King on why PoolSide was created.",
-    3:  "What is PoolSide? — a premium fast-acting hemp-derived THC drink mix, 15 minute onset, mixes into any cold beverage, portable, consistent 10mg dose.",
-    4:  "Why Consumers Love PoolSide — better-for-you hemp-derived THC, non-intoxicating experience, easy to carry, an alternative to alcohol.",
-    5:  "Why PoolSide Exists — alcohol consumption is declining, adults want approachable alternatives, THC beverage growth is accelerating, consumers are moving away from smoking.",
-    6:  "What is Delta-9 THC? — PoolSide contains 10mg active hemp-derived Delta-9 THC per pouch: hemp-derived, precisely dosed, fast acting, third-party tested.",
-    7:  "Nano-Soluble Technology — traditional THC versus PoolSide nano technology: mixes evenly, smooth taste, 15 to 30 minute onset, more efficient absorption, no oily residue.",
-    8:  "Why PoolSide is Legal — made with hemp-derived Delta-9 THC under the 2018 Farm Bill, which defines hemp as no more than 0.3% Delta-9 THC on a dry weight basis.",
-    9:  "Our Flavors — Flavorless, virtually tasteless and best with coffee, water, tea, soda or juice; and Mango, tropical and refreshing, best with water, sparkling water or a smoothie.",
+    1:  "Cover — PoolSide Company Overview. Flavorless and Mango 10mg THC drink mix pouches beside a pool at sunset.",
+    2:  "Our Mission — a letter from founder and CEO Aaron King on why PoolSide was created: adults want the benefits of THC without smoking, in a low dose, fast acting drink mix.",
+    3:  "What is PoolSide? — a premium fast-acting hemp-derived THC beverage enhancer. Each pouch contains 10mg of active Delta-9 THC. 15 minute onset, mixes into any cold beverage, portable, consistent dose.",
+    4:  "Why Consumers Love PoolSide — six reasons: fast-acting nano technology with a 10 to 15 minute onset, mixes with any beverage, take it anywhere, smoke-free, simple and consistent dosing, and great value.",
+    5:  "Why PoolSide Exists — alcohol consumption is declining, more adults want approachable alternatives, growth in THC beverages is accelerating and consumers are moving away from smoking. PoolSide is the future of social experiences.",
+    6:  "What is Delta-9 THC? — PoolSide contains 10mg active hemp-derived Delta-9 THC per pouch. Every batch is third-party lab tested with a Certificate of Analysis, covering cannabinoid potency, pesticides, residual solvents, heavy metals, mycotoxins, pathogenic microbiology, diacetyl and vitamin E acetate.",
+    7:  "Nano-Soluble Technology — traditional THC versus PoolSide nano technology: mixes evenly in any beverage, smooth clean drinking experience, 10 to 15 minute onset, more efficient absorption and no oily residue.",
+    8:  "Why PoolSide is Legal — made with hemp-derived Delta-9 THC under the 2018 Farm Bill, which defines hemp as containing no more than 0.3% Delta-9 THC on a dry weight basis. Federally compliant, tested, state compliant and manufactured to industry standards.",
+    9:  "Our Flavors — Flavorless, tasteless and mixes perfectly into any drink, best with juice, soda, coffee or mocktails; and Mango, tropical and refreshing, best with water, juice, soda or mocktails.",
     10: "Ingredients — purified water, citric acid, sodium benzoate, potassium sorbate, ascorbic acid and hemp-derived Delta-9 THC. Zero alcohol, zero calories, zero sugar.",
     11: "Nutrition Facts — 0 calories per pouch, 10mg hemp-derived Delta-9 THC as the active ingredient.",
     12: "Directions For Use — tear open the pouch, pour into 8 to 16 fl oz of your beverage, stir or shake well, enjoy responsibly. Do not exceed one pouch in 24 hours.",
     13: "Safety Information — 21+ only, keep out of reach of children and pets, do not drive, not for use during pregnancy, may cause a positive drug test, store in a cool dry place.",
     14: "Compliance Statements — FDA disclaimer and hemp compliance statement.",
     15: "Why Retailers Love PoolSide — high margin, fast turns, no refrigeration, small footprint, versatile fit and a trending category.",
-    16: "Frequently Asked Questions about onset time, mixing with alcohol, safety, drug tests and storage.",
-    17: "Elevate every moment — PoolSide 10mg THC Drink Mix. Visit drinkpoolside.com or @poolside.social.",
+    16: "Frequently Asked Questions on onset time, mixing with alcohol, safety, drug tests and storage, plus suggested MSRP of $4.95 for a single pouch and $51.00 for a box.",
+    17: "Mix. Sip. PoolSide. — PoolSide 10mg THC Drink Mix. Visit drinkpoolside.com or @poolside.social.",
 }
 
-# The contact CTA region on the final page (the "LET'S CONNECT" block and QR code).
-CONTACT_HOTSPOT = {"box": [0.795, 0.470, 0.985, 0.765], "label": "Contact us"}
+# Contact region and page CTAs both come from hotspots.json, which make_pdf.py
+# also reads — so the web flipbook and the PDF can never drift apart.
+CONTACT_HOTSPOT = CFG["contact"]
+CONTACT_PAGE = CONTACT_HOTSPOT.get("page", PAGES)
+CTAS = CFG.get("ctas", {})
 
 PRODUCTS = CFG["products"]
 HOTSPOTS = CFG["pages"]
@@ -65,15 +68,24 @@ def page_markup(i):
             f'<span class="hs__pin" aria-hidden="true"></span>'
             f'<span class="hs__tip">{html.escape(p["label"])}</span></a>'
         )
-    if i == PAGES:
+    if i == CONTACT_PAGE:
         x0, y0, x1, y1 = CONTACT_HOTSPOT["box"]
         spots.append(
-            f'<a class="hs hs--contact" href="{CONTACT}" target="_blank" rel="noopener"'
+            f'<a class="hs hs--contact" href="{CONTACT_HOTSPOT["url"]}" target="_blank" rel="noopener"'
             f' style="left:{x0*100:.3f}%;top:{y0*100:.3f}%;width:{(x1-x0)*100:.3f}%;height:{(y1-y0)*100:.3f}%"'
             f' aria-label="Contact PoolSide">'
             f'<span class="hs__pin" aria-hidden="true"></span>'
             f'<span class="hs__tip">{CONTACT_HOTSPOT["label"]}</span></a>'
         )
+    for cta in CTAS.get(str(i), []):
+        x0, y0, x1, y1 = cta["box"]
+        spots.append(
+            f'<a class="pcta" href="{cta["url"]}" target="_blank" rel="noopener"'
+            f' style="left:{x0*100:.3f}%;top:{y0*100:.3f}%;width:{(x1-x0)*100:.3f}%;height:{(y1-y0)*100:.3f}%">'
+            f'<span>{html.escape(cta["label"])}</span>'
+            f'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a>'
+        )
+
     # Pages 1-2 load immediately. The rest are hydrated by JS from data-* attrs.
     # Native loading="lazy" is NOT usable here: every page except the current one
     # sits in a visibility:hidden layer, so it never intersects the viewport and
@@ -247,6 +259,25 @@ body{{
   .hs__pin::before{{width:8px;height:8px}}
 }}
 .no-pins .hs__pin,.no-pins .hs__tip{{display:none}}
+
+/* labelled in-page CTA (e.g. "Full COAs" on page 6). Sized against the book,
+   which is capped by both viewport width and height, so min() of vw/vh tracks it. */
+.pcta{{
+  position:absolute;z-index:8;display:flex;align-items:center;justify-content:center;gap:.5em;
+  border-radius:999px;text-decoration:none;white-space:nowrap;
+  background:linear-gradient(180deg,#ffffff,#eaf2fb);color:var(--navy);
+  font-weight:800;letter-spacing:.015em;font-size:clamp(9px,min(1.12vw,1.5vh),17px);
+  box-shadow:0 3px 14px rgba(0,0,0,.34),inset 0 0 0 1px rgba(11,37,69,.12);
+  transition:transform .14s,box-shadow .18s,background .18s;
+}}
+.pcta:hover{{background:linear-gradient(180deg,#ffffff,#d9e8f8);transform:translateY(-1px);
+  box-shadow:0 7px 22px rgba(0,0,0,.44),inset 0 0 0 1px rgba(11,37,69,.20)}}
+.pcta:active{{transform:translateY(0)}}
+.pcta:focus-visible{{outline:2px solid #fff;outline-offset:3px}}
+.pcta svg{{width:1.05em;height:1.05em;fill:none;stroke:currentColor;stroke-width:2.4;
+  stroke-linecap:round;stroke-linejoin:round;transition:transform .16s}}
+.pcta:hover svg{{transform:translateX(2px)}}
+@media(prefers-reduced-motion:reduce){{.pcta,.pcta svg{{transition:none}}}}
 
 /* ---------- side arrows ---------- */
 .nav{{

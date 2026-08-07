@@ -142,6 +142,25 @@ body{
 }
 .no-pins .hs__pin,.no-pins .hs__tip{display:none}
 
+/* labelled in-page CTA (e.g. "Full COAs" on page 6). Sized against the book,
+   which is capped by both viewport width and height, so min() of vw/vh tracks it. */
+.pcta{
+  position:absolute;z-index:8;display:flex;align-items:center;justify-content:center;gap:.5em;
+  border-radius:999px;text-decoration:none;white-space:nowrap;
+  background:linear-gradient(180deg,#ffffff,#eaf2fb);color:var(--navy);
+  font-weight:800;letter-spacing:.015em;font-size:clamp(9px,min(1.12vw,1.5vh),17px);
+  box-shadow:0 3px 14px rgba(0,0,0,.34),inset 0 0 0 1px rgba(11,37,69,.12);
+  transition:transform .14s,box-shadow .18s,background .18s;
+}
+.pcta:hover{background:linear-gradient(180deg,#ffffff,#d9e8f8);transform:translateY(-1px);
+  box-shadow:0 7px 22px rgba(0,0,0,.44),inset 0 0 0 1px rgba(11,37,69,.20)}
+.pcta:active{transform:translateY(0)}
+.pcta:focus-visible{outline:2px solid #fff;outline-offset:3px}
+.pcta svg{width:1.05em;height:1.05em;fill:none;stroke:currentColor;stroke-width:2.4;
+  stroke-linecap:round;stroke-linejoin:round;transition:transform .16s}
+.pcta:hover svg{transform:translateX(2px)}
+@media(prefers-reduced-motion:reduce){.pcta,.pcta svg{transition:none}}
+
 /* ---------- side arrows ---------- */
 .nav{
   position:absolute;top:50%;transform:translateY(-50%);z-index:40;
@@ -254,58 +273,58 @@ body{
       <figure class="page" data-page="1" aria-label="Page 1 of 17">
         <picture>
           <source srcset="pages/page-01.webp" type="image/webp">
-          <img src="pages/page-01.jpg" alt="Cover — PoolSide Company Overview, internal sales and training guide." width="1448" height="1086" decoding="async" fetchpriority="high">
+          <img src="pages/page-01.jpg" alt="Cover — PoolSide Company Overview. Flavorless and Mango 10mg THC drink mix pouches beside a pool at sunset." width="1448" height="1086" decoding="async" fetchpriority="high">
         </picture>
         <span class="page__shade" aria-hidden="true"></span>
-        <a class="hs hs--flavorless" href="https://drinkpoolside.com/products/poolside-flavorless-thc-drink-mix-10mg" target="_blank" rel="noopener" style="left:47.180%;top:35.600%;width:15.080%;height:48.900%" aria-label="Shop Flavorless"><span class="hs__pin" aria-hidden="true"></span><span class="hs__tip">Shop Flavorless</span></a>
-        <a class="hs hs--mango" href="https://drinkpoolside.com/products/poolside-flavorless-thc-drink-mix-10mg-copy" target="_blank" rel="noopener" style="left:63.060%;top:35.500%;width:15.940%;height:49.000%" aria-label="Shop Mango"><span class="hs__pin" aria-hidden="true"></span><span class="hs__tip">Shop Mango</span></a>
+        <a class="hs hs--flavorless" href="https://drinkpoolside.com/products/poolside-flavorless-thc-drink-mix-10mg" target="_blank" rel="noopener" style="left:47.600%;top:35.600%;width:14.800%;height:48.200%" aria-label="Shop Flavorless"><span class="hs__pin" aria-hidden="true"></span><span class="hs__tip">Shop Flavorless</span></a>
+        <a class="hs hs--mango" href="https://drinkpoolside.com/products/poolside-flavorless-thc-drink-mix-10mg-copy" target="_blank" rel="noopener" style="left:63.200%;top:35.600%;width:17.200%;height:50.400%" aria-label="Shop Mango"><span class="hs__pin" aria-hidden="true"></span><span class="hs__tip">Shop Mango</span></a>
       </figure>
       <figure class="page" data-page="2" aria-label="Page 2 of 17">
         <picture>
           <source srcset="pages/page-02.webp" type="image/webp">
-          <img src="pages/page-02.jpg" alt="Our Mission — a letter from founder and CEO Aaron King on why PoolSide was created." width="1448" height="1086" decoding="async">
+          <img src="pages/page-02.jpg" alt="Our Mission — a letter from founder and CEO Aaron King on why PoolSide was created: adults want the benefits of THC without smoking, in a low dose, fast acting drink mix." width="1448" height="1086" decoding="async">
         </picture>
         <span class="page__shade" aria-hidden="true"></span>
-        <a class="hs hs--flavorless" href="https://drinkpoolside.com/products/poolside-flavorless-thc-drink-mix-10mg" target="_blank" rel="noopener" style="left:63.130%;top:31.310%;width:20.980%;height:49.190%" aria-label="Shop Flavorless"><span class="hs__pin" aria-hidden="true"></span><span class="hs__tip">Shop Flavorless</span></a>
+        <a class="hs hs--flavorless" href="https://drinkpoolside.com/products/poolside-flavorless-thc-drink-mix-10mg" target="_blank" rel="noopener" style="left:64.800%;top:31.300%;width:20.400%;height:58.700%" aria-label="Shop Flavorless"><span class="hs__pin" aria-hidden="true"></span><span class="hs__tip">Shop Flavorless</span></a>
       </figure>
       <figure class="page" data-page="3" aria-label="Page 3 of 17">
         <picture>
           <source data-srcset="pages/page-03.webp" type="image/webp">
-          <img data-src="pages/page-03.jpg" alt="What is PoolSide? — a premium fast-acting hemp-derived THC drink mix, 15 minute onset, mixes into any cold beverage, portable, consistent 10mg dose." width="1448" height="1086" decoding="async">
+          <img data-src="pages/page-03.jpg" alt="What is PoolSide? — a premium fast-acting hemp-derived THC beverage enhancer. Each pouch contains 10mg of active Delta-9 THC. 15 minute onset, mixes into any cold beverage, portable, consistent dose." width="1448" height="1086" decoding="async">
         </picture>
         <span class="page__shade" aria-hidden="true"></span>
-        <a class="hs hs--flavorless" href="https://drinkpoolside.com/products/poolside-flavorless-thc-drink-mix-10mg" target="_blank" rel="noopener" style="left:51.030%;top:22.900%;width:24.140%;height:53.300%" aria-label="Shop Flavorless"><span class="hs__pin" aria-hidden="true"></span><span class="hs__tip">Shop Flavorless</span></a>
+        <a class="hs hs--flavorless" href="https://drinkpoolside.com/products/poolside-flavorless-thc-drink-mix-10mg" target="_blank" rel="noopener" style="left:52.800%;top:23.000%;width:23.400%;height:59.000%" aria-label="Shop Flavorless"><span class="hs__pin" aria-hidden="true"></span><span class="hs__tip">Shop Flavorless</span></a>
       </figure>
       <figure class="page" data-page="4" aria-label="Page 4 of 17">
         <picture>
           <source data-srcset="pages/page-04.webp" type="image/webp">
-          <img data-src="pages/page-04.jpg" alt="Why Consumers Love PoolSide — better-for-you hemp-derived THC, non-intoxicating experience, easy to carry, an alternative to alcohol." width="1448" height="1086" decoding="async">
+          <img data-src="pages/page-04.jpg" alt="Why Consumers Love PoolSide — six reasons: fast-acting nano technology with a 10 to 15 minute onset, mixes with any beverage, take it anywhere, smoke-free, simple and consistent dosing, and great value." width="1448" height="1086" decoding="async">
         </picture>
         <span class="page__shade" aria-hidden="true"></span>
-        <a class="hs hs--flavorless" href="https://drinkpoolside.com/products/poolside-flavorless-thc-drink-mix-10mg" target="_blank" rel="noopener" style="left:42.000%;top:36.600%;width:16.660%;height:48.900%" aria-label="Shop Flavorless"><span class="hs__pin" aria-hidden="true"></span><span class="hs__tip">Shop Flavorless</span></a>
-        <a class="hs hs--mango" href="https://drinkpoolside.com/products/poolside-flavorless-thc-drink-mix-10mg-copy" target="_blank" rel="noopener" style="left:59.460%;top:36.700%;width:17.230%;height:48.800%" aria-label="Shop Mango"><span class="hs__pin" aria-hidden="true"></span><span class="hs__tip">Shop Mango</span></a>
+        <a class="hs hs--flavorless" href="https://drinkpoolside.com/products/poolside-flavorless-thc-drink-mix-10mg" target="_blank" rel="noopener" style="left:41.400%;top:36.600%;width:17.100%;height:53.400%" aria-label="Shop Flavorless"><span class="hs__pin" aria-hidden="true"></span><span class="hs__tip">Shop Flavorless</span></a>
+        <a class="hs hs--mango" href="https://drinkpoolside.com/products/poolside-flavorless-thc-drink-mix-10mg-copy" target="_blank" rel="noopener" style="left:59.300%;top:36.700%;width:19.800%;height:53.300%" aria-label="Shop Mango"><span class="hs__pin" aria-hidden="true"></span><span class="hs__tip">Shop Mango</span></a>
       </figure>
       <figure class="page" data-page="5" aria-label="Page 5 of 17">
         <picture>
           <source data-srcset="pages/page-05.webp" type="image/webp">
-          <img data-src="pages/page-05.jpg" alt="Why PoolSide Exists — alcohol consumption is declining, adults want approachable alternatives, THC beverage growth is accelerating, consumers are moving away from smoking." width="1448" height="1086" decoding="async">
+          <img data-src="pages/page-05.jpg" alt="Why PoolSide Exists — alcohol consumption is declining, more adults want approachable alternatives, growth in THC beverages is accelerating and consumers are moving away from smoking. PoolSide is the future of social experiences." width="1448" height="1086" decoding="async">
         </picture>
         <span class="page__shade" aria-hidden="true"></span>
-        <a class="hs hs--flavorless" href="https://drinkpoolside.com/products/poolside-flavorless-thc-drink-mix-10mg" target="_blank" rel="noopener" style="left:10.580%;top:58.700%;width:13.640%;height:30.600%" aria-label="Shop Flavorless"><span class="hs__pin" aria-hidden="true"></span><span class="hs__tip">Shop Flavorless</span></a>
-        <a class="hs hs--mango" href="https://drinkpoolside.com/products/poolside-flavorless-thc-drink-mix-10mg-copy" target="_blank" rel="noopener" style="left:25.680%;top:58.900%;width:13.640%;height:30.400%" aria-label="Shop Mango"><span class="hs__pin" aria-hidden="true"></span><span class="hs__tip">Shop Mango</span></a>
+        <a class="hs hs--flavorless" href="https://drinkpoolside.com/products/poolside-flavorless-thc-drink-mix-10mg" target="_blank" rel="noopener" style="left:9.300%;top:55.300%;width:14.000%;height:36.700%" aria-label="Shop Flavorless"><span class="hs__pin" aria-hidden="true"></span><span class="hs__tip">Shop Flavorless</span></a>
+        <a class="hs hs--mango" href="https://drinkpoolside.com/products/poolside-flavorless-thc-drink-mix-10mg-copy" target="_blank" rel="noopener" style="left:24.100%;top:55.500%;width:13.700%;height:36.500%" aria-label="Shop Mango"><span class="hs__pin" aria-hidden="true"></span><span class="hs__tip">Shop Mango</span></a>
       </figure>
       <figure class="page" data-page="6" aria-label="Page 6 of 17">
         <picture>
           <source data-srcset="pages/page-06.webp" type="image/webp">
-          <img data-src="pages/page-06.jpg" alt="What is Delta-9 THC? — PoolSide contains 10mg active hemp-derived Delta-9 THC per pouch: hemp-derived, precisely dosed, fast acting, third-party tested." width="1448" height="1086" decoding="async">
+          <img data-src="pages/page-06.jpg" alt="What is Delta-9 THC? — PoolSide contains 10mg active hemp-derived Delta-9 THC per pouch. Every batch is third-party lab tested with a Certificate of Analysis, covering cannabinoid potency, pesticides, residual solvents, heavy metals, mycotoxins, pathogenic microbiology, diacetyl and vitamin E acetate." width="1448" height="1086" decoding="async">
         </picture>
         <span class="page__shade" aria-hidden="true"></span>
-
+        <a class="pcta" href="https://drinkpoolside.com/pages/coa" target="_blank" rel="noopener" style="left:4.200%;top:90.000%;width:20.300%;height:5.800%"><span>Full COAs</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a>
       </figure>
       <figure class="page" data-page="7" aria-label="Page 7 of 17">
         <picture>
           <source data-srcset="pages/page-07.webp" type="image/webp">
-          <img data-src="pages/page-07.jpg" alt="Nano-Soluble Technology — traditional THC versus PoolSide nano technology: mixes evenly, smooth taste, 15 to 30 minute onset, more efficient absorption, no oily residue." width="1448" height="1086" decoding="async">
+          <img data-src="pages/page-07.jpg" alt="Nano-Soluble Technology — traditional THC versus PoolSide nano technology: mixes evenly in any beverage, smooth clean drinking experience, 10 to 15 minute onset, more efficient absorption and no oily residue." width="1448" height="1086" decoding="async">
         </picture>
         <span class="page__shade" aria-hidden="true"></span>
 
@@ -313,19 +332,19 @@ body{
       <figure class="page" data-page="8" aria-label="Page 8 of 17">
         <picture>
           <source data-srcset="pages/page-08.webp" type="image/webp">
-          <img data-src="pages/page-08.jpg" alt="Why PoolSide is Legal — made with hemp-derived Delta-9 THC under the 2018 Farm Bill, which defines hemp as no more than 0.3% Delta-9 THC on a dry weight basis." width="1448" height="1086" decoding="async">
+          <img data-src="pages/page-08.jpg" alt="Why PoolSide is Legal — made with hemp-derived Delta-9 THC under the 2018 Farm Bill, which defines hemp as containing no more than 0.3% Delta-9 THC on a dry weight basis. Federally compliant, tested, state compliant and manufactured to industry standards." width="1448" height="1086" decoding="async">
         </picture>
         <span class="page__shade" aria-hidden="true"></span>
-        <a class="hs hs--flavorless" href="https://drinkpoolside.com/products/poolside-flavorless-thc-drink-mix-10mg" target="_blank" rel="noopener" style="left:42.360%;top:47.500%;width:14.480%;height:32.500%" aria-label="Shop Flavorless"><span class="hs__pin" aria-hidden="true"></span><span class="hs__tip">Shop Flavorless</span></a>
+        <a class="hs hs--flavorless" href="https://drinkpoolside.com/products/poolside-flavorless-thc-drink-mix-10mg" target="_blank" rel="noopener" style="left:43.300%;top:41.600%;width:15.500%;height:42.400%" aria-label="Shop Flavorless"><span class="hs__pin" aria-hidden="true"></span><span class="hs__tip">Shop Flavorless</span></a>
       </figure>
       <figure class="page" data-page="9" aria-label="Page 9 of 17">
         <picture>
           <source data-srcset="pages/page-09.webp" type="image/webp">
-          <img data-src="pages/page-09.jpg" alt="Our Flavors — Flavorless, virtually tasteless and best with coffee, water, tea, soda or juice; and Mango, tropical and refreshing, best with water, sparkling water or a smoothie." width="1448" height="1086" decoding="async">
+          <img data-src="pages/page-09.jpg" alt="Our Flavors — Flavorless, tasteless and mixes perfectly into any drink, best with juice, soda, coffee or mocktails; and Mango, tropical and refreshing, best with water, juice, soda or mocktails." width="1448" height="1086" decoding="async">
         </picture>
         <span class="page__shade" aria-hidden="true"></span>
-        <a class="hs hs--flavorless" href="https://drinkpoolside.com/products/poolside-flavorless-thc-drink-mix-10mg" target="_blank" rel="noopener" style="left:6.800%;top:18.300%;width:17.600%;height:57.900%" aria-label="Shop Flavorless"><span class="hs__pin" aria-hidden="true"></span><span class="hs__tip">Shop Flavorless</span></a>
-        <a class="hs hs--mango" href="https://drinkpoolside.com/products/poolside-flavorless-thc-drink-mix-10mg-copy" target="_blank" rel="noopener" style="left:54.630%;top:18.400%;width:18.040%;height:57.800%" aria-label="Shop Mango"><span class="hs__pin" aria-hidden="true"></span><span class="hs__tip">Shop Mango</span></a>
+        <a class="hs hs--flavorless" href="https://drinkpoolside.com/products/poolside-flavorless-thc-drink-mix-10mg" target="_blank" rel="noopener" style="left:6.200%;top:18.300%;width:21.600%;height:59.200%" aria-label="Shop Flavorless"><span class="hs__pin" aria-hidden="true"></span><span class="hs__tip">Shop Flavorless</span></a>
+        <a class="hs hs--mango" href="https://drinkpoolside.com/products/poolside-flavorless-thc-drink-mix-10mg-copy" target="_blank" rel="noopener" style="left:51.200%;top:18.300%;width:24.600%;height:61.700%" aria-label="Shop Mango"><span class="hs__pin" aria-hidden="true"></span><span class="hs__tip">Shop Mango</span></a>
       </figure>
       <figure class="page" data-page="10" aria-label="Page 10 of 17">
         <picture>
@@ -380,7 +399,7 @@ body{
       <figure class="page" data-page="16" aria-label="Page 16 of 17">
         <picture>
           <source data-srcset="pages/page-16.webp" type="image/webp">
-          <img data-src="pages/page-16.jpg" alt="Frequently Asked Questions about onset time, mixing with alcohol, safety, drug tests and storage." width="1448" height="1086" decoding="async">
+          <img data-src="pages/page-16.jpg" alt="Frequently Asked Questions on onset time, mixing with alcohol, safety, drug tests and storage, plus suggested MSRP of $4.95 for a single pouch and $51.00 for a box." width="1448" height="1086" decoding="async">
         </picture>
         <span class="page__shade" aria-hidden="true"></span>
 
@@ -388,12 +407,12 @@ body{
       <figure class="page" data-page="17" aria-label="Page 17 of 17">
         <picture>
           <source data-srcset="pages/page-17.webp" type="image/webp">
-          <img data-src="pages/page-17.jpg" alt="Elevate every moment — PoolSide 10mg THC Drink Mix. Visit drinkpoolside.com or @poolside.social." width="1448" height="1086" decoding="async">
+          <img data-src="pages/page-17.jpg" alt="Mix. Sip. PoolSide. — PoolSide 10mg THC Drink Mix. Visit drinkpoolside.com or @poolside.social." width="1448" height="1086" decoding="async">
         </picture>
         <span class="page__shade" aria-hidden="true"></span>
-        <a class="hs hs--mango" href="https://drinkpoolside.com/products/poolside-flavorless-thc-drink-mix-10mg-copy" target="_blank" rel="noopener" style="left:30.850%;top:32.000%;width:17.000%;height:47.000%" aria-label="Shop Mango"><span class="hs__pin" aria-hidden="true"></span><span class="hs__tip">Shop Mango</span></a>
-        <a class="hs hs--flavorless" href="https://drinkpoolside.com/products/poolside-flavorless-thc-drink-mix-10mg" target="_blank" rel="noopener" style="left:48.650%;top:32.200%;width:16.290%;height:46.800%" aria-label="Shop Flavorless"><span class="hs__pin" aria-hidden="true"></span><span class="hs__tip">Shop Flavorless</span></a>
-        <a class="hs hs--contact" href="https://drinkpoolside.com/pages/contact" target="_blank" rel="noopener" style="left:79.500%;top:47.000%;width:19.000%;height:29.500%" aria-label="Contact PoolSide"><span class="hs__pin" aria-hidden="true"></span><span class="hs__tip">Contact us</span></a>
+        <a class="hs hs--flavorless" href="https://drinkpoolside.com/products/poolside-flavorless-thc-drink-mix-10mg" target="_blank" rel="noopener" style="left:31.000%;top:27.400%;width:16.900%;height:49.700%" aria-label="Shop Flavorless"><span class="hs__pin" aria-hidden="true"></span><span class="hs__tip">Shop Flavorless</span></a>
+        <a class="hs hs--mango" href="https://drinkpoolside.com/products/poolside-flavorless-thc-drink-mix-10mg-copy" target="_blank" rel="noopener" style="left:48.700%;top:25.100%;width:22.700%;height:50.800%" aria-label="Shop Mango"><span class="hs__pin" aria-hidden="true"></span><span class="hs__tip">Shop Mango</span></a>
+        <a class="hs hs--contact" href="https://drinkpoolside.com/pages/contact" target="_blank" rel="noopener" style="left:81.500%;top:36.500%;width:17.500%;height:34.000%" aria-label="Contact PoolSide"><span class="hs__pin" aria-hidden="true"></span><span class="hs__tip">Contact us</span></a>
       </figure>
     </div>
 

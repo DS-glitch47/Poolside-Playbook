@@ -19,8 +19,12 @@ CFG = json.load(open(os.path.join(HERE, "hotspots.json")))
 OUT = os.path.join(HERE, "PoolSide-Brand-Playbook.pdf")
 
 PAGES = 17
-CONTACT = "https://drinkpoolside.com/pages/contact"
-CONTACT_BOX = [0.795, 0.470, 0.985, 0.765]
+# Read from hotspots.json (same file build.py uses) so the PDF and the web
+# flipbook can never drift apart. This used to be duplicated here by hand.
+CONTACT = CFG["contact"]["url"]
+CONTACT_BOX = CFG["contact"]["box"]
+CONTACT_PAGE = CFG["contact"].get("page", PAGES)
+CTAS = CFG.get("ctas", {})
 
 # 1448 x 1086 px at 150 dpi -> a comfortable landscape page
 DPI = 150.0
@@ -42,8 +46,30 @@ for i in range(1, PAGES + 1):
 
     spots = list(SPOTS.get(str(i), []))
     links = [(PRODUCTS[s["p"]]["url"], s["box"]) for s in spots]
-    if i == PAGES:
+    if i == CONTACT_PAGE:
         links.append((CONTACT, CONTACT_BOX))
+
+    # Labelled CTAs are HTML in the flipbook, so they are not baked into the page
+    # images. Draw them as vector here, otherwise the PDF would show a link with
+    # nothing to click on.
+    for cta in CTAS.get(str(i), []):
+        x0, y0, x1, y1 = cta["box"]
+        bx, by = x0 * W, (1 - y1) * H
+        bw, bh = (x1 - x0) * W, (y1 - y0) * H
+        c.saveState()
+        c.setFillColorRGB(1, 1, 1)
+        c.setStrokeColorRGB(0.043, 0.145, 0.271)
+        c.setLineWidth(0.7)
+        c.roundRect(bx, by, bw, bh, bh / 2.0, stroke=1, fill=1)
+        label = cta["label"]
+        fs = bh * 0.40
+        c.setFillColorRGB(0.043, 0.145, 0.271)
+        c.setFont("Helvetica-Bold", fs)
+        arrow = "  \u2192"
+        tw = c.stringWidth(label + arrow, "Helvetica-Bold", fs)
+        c.drawString(bx + (bw - tw) / 2.0, by + (bh - fs) / 2.0 + fs * 0.22, label + arrow)
+        c.restoreState()
+        links.append((cta["url"], cta["box"]))
 
     for url, (x0, y0, x1, y1) in links:
         # hotspots.json uses a top-left origin; PDF uses bottom-left
