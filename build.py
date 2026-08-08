@@ -42,7 +42,7 @@ ALT = {
     13: "Safety Information — 21+ only, keep out of reach of children and pets, do not drive, not for use during pregnancy, may cause a positive drug test, store in a cool dry place.",
     14: "Compliance Statements — FDA disclaimer and hemp compliance statement.",
     15: "Why Retailers Love PoolSide — high margin with strong ROI, fast turns and repeat buys, no refrigeration needed, a small footprint that saves shelf space, versatile fit for liquor, grocery, convenience and smoke shops, and a trending functional beverage category.",
-    16: "Frequently Asked Questions on onset time, mixing with alcohol, safety, drug tests and storage, plus suggested MSRP of $4.95 for a single pouch and $51.00 for a box.",
+    16: "Frequently Asked Questions about onset time, mixing with alcohol, safety, drug tests and storage, plus suggested MSRP: $4.95 for a single pouch and $51.00 for a 12-pack box at $4.25 per unit.",
     17: "Mix. Sip. PoolSide. — PoolSide 10mg THC Drink Mix. Visit drinkpoolside.com or @poolside.social.",
 }
 
