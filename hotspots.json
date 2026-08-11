@@ -1,5 +1,5 @@
 {
-  "_comment": "Clickable product regions. box = [x0, y0, x1, y1] as fractions of page width/height (0-1), top-left origin. Colour-detected from the pouch caps, validated by requiring a white pouch body beneath each cap, de-overlapped between neighbouring pouches, then confirmed on a visual QA overlay. Pages 10 and 15 are unchanged artwork and keep their original boxes. 'contact' and 'ctas' are read by BOTH build.py and make_pdf.py so the web flipbook and the PDF can never drift apart.",
+  "_comment": "Clickable product regions. box = [x0,y0,x1,y1] as fractions of page width/height (0-1), top-left origin. Colour-detected from the pouch caps, validated by requiring a white pouch body beneath each cap, de-overlapped between neighbouring pouches, then confirmed on a visual QA overlay. 'contact' and 'ctas' are read by BOTH build.py and make_pdf.py so the web flipbook and the PDF can never drift apart. Page indices shifted +1 from page 7 onward when the 'Made For Every Occasion' slide was inserted at 6.",
   "products": {
     "flavorless": {
       "label": "Shop Flavorless",
@@ -13,7 +13,7 @@
   "contact": {
     "url": "https://drinkpoolside.com/pages/contact",
     "label": "Contact us",
-    "page": 17,
+    "page": 18,
     "box": [
       0.815,
       0.365,
@@ -22,15 +22,15 @@
     ]
   },
   "ctas": {
-    "6": [
+    "7": [
       {
         "label": "Full COAs",
         "url": "https://drinkpoolside.com/pages/coa",
         "box": [
           0.042,
-          0.9,
-          0.245,
-          0.958
+          0.792,
+          0.262,
+          0.862
         ]
       }
     ]
@@ -60,10 +60,10 @@
       {
         "p": "flavorless",
         "box": [
-          0.604,
-          0.297,
-          0.795,
-          0.891
+          0.605,
+          0.298,
+          0.796,
+          0.849
         ]
       }
     ],
@@ -78,7 +78,7 @@
         ]
       }
     ],
-    "8": [
+    "9": [
       {
         "p": "flavorless",
         "box": [
@@ -89,7 +89,7 @@
         ]
       }
     ],
-    "9": [
+    "10": [
       {
         "p": "flavorless",
         "box": [
@@ -109,7 +109,7 @@
         ]
       }
     ],
-    "10": [
+    "11": [
       {
         "p": "flavorless",
         "box": [
@@ -129,7 +129,7 @@
         ]
       }
     ],
-    "15": [
+    "16": [
       {
         "p": "flavorless",
         "box": [
@@ -149,7 +149,7 @@
         ]
       }
     ],
-    "16": [
+    "17": [
       {
         "p": "flavorless",
         "box": [
@@ -169,7 +169,7 @@
         ]
       }
     ],
-    "17": [
+    "18": [
       {
         "p": "flavorless",
         "box": [

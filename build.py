@@ -16,7 +16,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 CFG = json.load(open(os.path.join(HERE, "hotspots.json")))
 OUT = os.path.join(HERE, "index.html")
 
-PAGES = 17
+PAGES = 18
 PW, PH = 1448, 1086
 
 TITLE = "PoolSide — Brand Playbook"
@@ -27,23 +27,24 @@ CONTACT = "https://drinkpoolside.com/pages/contact"
 
 # Per-page alt text — real descriptions matter for SEO and screen readers.
 ALT = {
-    1:  "Cover — PoolSide Company Overview. Flavorless and Mango 10mg THC drink mix pouches beside a pool at sunset.",
-    2:  "Our Mission — a letter from founder and CEO Aaron King on why PoolSide was created: alcohol consumption is declining, adults want approachable social alternatives, and many want the benefits of THC without smoking.",
-    3:  "What is PoolSide? — a premium fast-acting hemp-derived THC beverage enhancer that turns any drink into a THC-infused experience. 10mg Active Delta-9 THC per pouch, 0% alcohol, 0 calories, 0 sugar. Fast acting 15 minute onset, add to any drink, portable and convenient, consistent 10mg dose.",
-    4:  "Why Consumers Love PoolSide — fast-acting nano technology with onset in 10 to 15 minutes, mixes with any beverage, portable enough for pool days, beach trips, BBQs and concerts, smoke-free, consistently dosed and good value.",
-    5:  "Why PoolSide Exists — alcohol consumption is declining, more adults want approachable alternatives, growth in THC beverages is accelerating and consumers are moving away from smoking. PoolSide is the future of social experiences.",
-    6:  "What is Delta-9 THC? — PoolSide contains 10mg active hemp-derived Delta-9 THC per pouch, third-party lab tested every batch with a Certificate of Analysis covering potency, pesticides, residual solvents, heavy metals, mycotoxins, pathogenic microbiology, diacetyl and vitamin E acetate.",
-    7:  "Nano-Soluble Technology — traditional THC versus PoolSide nano technology: mixes evenly in any beverage, smooth clean drinking experience, 10 to 15 minute onset, more efficient absorption and no oily residue.",
-    8:  "How PoolSide is Legal — made with hemp-derived Delta-9 THC under the 2018 Farm Bill, which defines hemp as no more than 0.3% Delta-9 THC on a dry weight basis. Federally compliant, third-party tested, sold only in states where permitted.",
-    9:  "Our Flavors — Flavorless, tasteless and mixes perfectly into any drink, best with juice, soda, coffee or mocktails; and Mango, a tropical refreshing mango flavor that pairs with any drink, best with water, juice, soda or mocktails.",
-    10: "Ingredients — purified water, citric acid, sodium benzoate, potassium sorbate, ascorbic acid and hemp-derived Delta-9 THC. Zero alcohol, zero calories, zero sugar.",
-    11: "Nutrition Facts — 0 calories per pouch, 10mg hemp-derived Delta-9 THC as the active ingredient.",
-    12: "Directions For Use — tear open the pouch, pour into 8 to 16 fl oz of your beverage, stir or shake well, enjoy responsibly. Do not exceed one pouch in 24 hours.",
-    13: "Safety Information — 21+ only, keep out of reach of children and pets, do not drive, not for use during pregnancy, may cause a positive drug test, store in a cool dry place.",
-    14: "Compliance Statements — FDA disclaimer and hemp compliance statement. All cannabinoid ingredients are derived from hemp.",
-    15: "Why Retailers Love PoolSide — high margin with strong ROI, fast turns and repeat buys, no refrigeration, small footprint, versatile fit for liquor, grocery, convenience and smoke shops, and a trending functional beverage category.",
-    16: "Frequently Asked Questions about onset time, mixing with alcohol, safety, drug tests and storage, plus suggested MSRP: $4.95 for a single pouch and $51.00 for a 12-pack box at $4.25 per unit.",
-    17: "Mix. Sip. PoolSide. — PoolSide 10mg THC Drink Mix. Visit drinkpoolside.com or @poolside.social.",
+    1: "Cover — PoolSide Company Overview.",
+    2: "Our Mission — a letter from founder and CEO Aaron King on why PoolSide was created: alcohol consumption is declining, adults want approachable social alternatives, and many want the benefits of THC without smoking.",
+    3: "What is PoolSide? — a premium fast-acting hemp-derived THC drink mix. 15 minute onset, mixes into any cold beverage, portable, consistent 10mg dose, zero alcohol, zero calories, zero sugar.",
+    4: "Why Consumers Love PoolSide — fast-acting nano technology with onset in 10 to 15 minutes, mixes with any beverage, portable enough for pool days, beach trips, BBQs and concerts, smoke-free, consistently dosed and good value.",
+    5: "Why PoolSide Exists — alcohol consumption is declining, more adults want approachable alternatives, growth in THC beverages is accelerating and consumers are moving away from smoking. PoolSide is the future of social experiences.",
+    6: "Made For Every Occasion — PoolSide fits the pool, the beach, the boat, golf, concerts, nightlife and home.",
+    7: "What is Delta-9 THC? — PoolSide contains 10mg active hemp-derived Delta-9 THC per pouch, third-party lab tested every batch with a Certificate of Analysis covering potency, pesticides, residual solvents, heavy metals, mycotoxins, pathogenic microbiology, diacetyl and vitamin E acetate.",
+    8: "Nano-Soluble Technology — traditional THC edibles and oils versus PoolSide nano technology: mixes evenly in any beverage, smooth and clean, 10 to 15 minute onset, more efficient absorption and no oily residue.",
+    9: "How PoolSide is Legal — made with hemp-derived Delta-9 THC under the 2018 Farm Bill, which defines hemp as no more than 0.3% Delta-9 THC on a dry weight basis. Federally compliant, third-party tested, sold only in states where permitted.",
+    10: "Our Flavors — Flavorless, tasteless and mixes perfectly into any drink, best with juice, soda, coffee or mocktails; and Mango, tropical and refreshing, best with water, juice, soda or mocktails.",
+    11: "Ingredients — purified water, citric acid, sodium benzoate, potassium sorbate, ascorbic acid and hemp-derived Delta-9 THC. Zero alcohol, zero calories, zero sugar.",
+    12: "Nutrition Facts — 0 calories per pouch, 10mg hemp-derived Delta-9 THC as the active ingredient.",
+    13: "Directions For Use — tear open the pouch, pour into 8 to 16 fl oz of your beverage, stir or shake well, enjoy responsibly. Do not exceed one pouch in 24 hours.",
+    14: "Safety Information — 21+ only, keep out of reach of children and pets, do not drive, not for use during pregnancy, may cause a positive drug test, store in a cool dry place.",
+    15: "Compliance Statements — FDA disclaimer and hemp compliance statement. All cannabinoid ingredients are derived from hemp.",
+    16: "Why Retailers Love PoolSide — high margin with strong ROI, fast turns and repeat buys, no refrigeration, small footprint, versatile fit for liquor, grocery, convenience and smoke shops, and a trending functional beverage category.",
+    17: "Frequently Asked Questions about onset time, mixing with alcohol, safety, drug tests and storage, plus suggested MSRP: $4.95 for a single pouch and $51.00 for a 12-pack box at $4.25 per unit.",
+    18: "Mix. Sip. PoolSide. — PoolSide 10mg THC Drink Mix. Visit drinkpoolside.com or @poolside.social.",
 }
 
 # Contact region and page CTAs both come from hotspots.json, which make_pdf.py

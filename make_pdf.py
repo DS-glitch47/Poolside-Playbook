@@ -18,7 +18,7 @@ SRC = os.path.join(HERE, "pages")
 CFG = json.load(open(os.path.join(HERE, "hotspots.json")))
 OUT = os.path.join(HERE, "PoolSide-Brand-Playbook.pdf")
 
-PAGES = 17
+PAGES = 18
 # Read from hotspots.json (same file build.py uses) so the PDF and the web
 # flipbook can never drift apart. This used to be duplicated here by hand.
 CONTACT = CFG["contact"]["url"]
